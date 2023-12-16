@@ -1,0 +1,59 @@
+﻿@model IEnumerable<PSA_Projekat.Models.Oprema>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+<link href="~/css/style2.css" rel="stylesheet" />
+<h2>Insert Gym Equipment</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sifra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Proizvodjac)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kolicina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TezinaKilograms)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Sifra)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Naziv)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Proizvodjac)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Kolicina)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TezinaKilograms)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Sifra }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Sifra }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Sifra })
+    </td>
+</tr>
+}
+
+</table>
+

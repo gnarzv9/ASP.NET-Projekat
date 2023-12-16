@@ -1,0 +1,54 @@
+﻿
+
+@model PSA_Projekat.Models.Sportista
+
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+<link href="~/css/style2.css" rel="stylesheet" />
+
+<h2>Sign Up</h2>
+
+@using (Html.BeginForm("SignUp", "Home", FormMethod.Post))
+{
+    <label>Name:</label>
+    <br />
+    @Html.TextBoxFor(x => x.Ime)
+    <br />
+    @Html.ValidationMessageFor(x => x.Ime, "Please enter your name, must be 2-25 characters.",
+new { @class = "text-danger" })
+    <br />
+    <br />
+    <label>Surname:</label>
+    <br />
+    @Html.TextBoxFor(x => x.Prezime)
+    <br />
+    @Html.ValidationMessageFor(x => x.Prezime, "Please enter your surname, must be 2-25 characters.",
+new { @class = "text-danger" })
+    <br />
+    <br />
+
+    <label>Gender:</label>
+    <br />
+    @Html.RadioButtonFor(x => x.Pol, "Male") <span>M</span>
+    @Html.RadioButtonFor(x => x.Pol, "Female") <span>F</span>
+    <br />
+    <br />
+    <label>Payment:</label>
+    <br />
+    @Html.DropDownListFor(x => x.Clanarina, new[] {
+    new SelectListItem() {Text="1 Month", Value = "1 Month" },
+    new SelectListItem() {Text="2 Months", Value = "2 Months" },
+    new SelectListItem() {Text="3 Months", Value = "3 Months" }
+
+}, "--")
+    <br />
+    @Html.ValidationMessageFor(x => x.Prezime, "Required.",
+new { @class = "text-danger" })
+    <br />
+    <br />
+
+    <input class="dugme" type="submit" value="Confirm" />
+}
+
